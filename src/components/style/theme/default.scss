@@ -1,73 +1,138 @@
-@import "../color";
+//@import "../color";
+//
+//$preset:'recruit';
+//
+//$primary-color:$blue-6;
+//$info-color: $blue-6;
+//$success-color: $green-6;
+//$processing-color: $blue-6;
+//$error-color: $red-6;
+//$highlight-color: $red-6;
+//$warning-color: $gold-6;
+//$normal-color: #d9d9d9;
+//$white: #fff;
+//$black: #000;
+//
+////basic styles
+//$body-background: #fff;
+//$component-background: #fff;
+//$code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+//$text-color:lighten($black,65%);
+//$text-color-secondary:lighten($black,45%);
+//$text-color-warning:$gold-7;
+//$text-color-dark: lighten($white, 85%);
+//$text-color-secondary-dark: lighten($white, 65%);
+//$font-size-base: 14px;
+//$font-size-lg: $font-size-base + 2px;
+//$font-size-sm: 12px;
+//$font-variant-base: tabular-nums;
+//$font-feature-settings-base: 'tnum';
+//$line-height-base: 1.5;
+//$border-radius-base: 4px;
+//$border-radius-sm: 2px;
+//$heading-1-size: ceil($font-size-base * 2.71);
+//$heading-2-size: ceil($font-size-base * 2.14);
+//$heading-3-size: ceil($font-size-base * 1.71);
+//$heading-4-size: ceil($font-size-base * 1.42);
+//
+//$padding-lg: 24px;
+//$padding-md: 16px;
+//$padding-sm: 12px;
+//$padding-xs: 8px;
+//
+//
+////Animation
+//$ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
+//$ease-base-in: cubic-bezier(0.9, 0, 0.3, 0.7);
+//$ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+//$ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+//$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+//$ease-out-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+//$ease-in-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
+//$ease-in-out-back: cubic-bezier(0.71, -0.46, 0.29, 1.46);
+//$ease-out-circ: cubic-bezier(0.08, 0.82, 0.17, 1);
+//$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+//$ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+//$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+//$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+//$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+//
+//// Border color
+//$border-color-base: hsl(0, 0, 85%); // base border outline a component
+//$border-color-split: hsl(0, 0, 91%); // split border inside a component
+//$border-color-inverse: $white;
+//$border-width-base: 1px; // width of the border for a component
+//$border-style-base: solid;
+//
+//
+//// Outline
+//$outline-blur-size: 0;
+//$outline-width: 2px;
+//$outline-color: $primary-color;
+//$background-color-light: hsl(0, 0, 98%); // background of header and selected item
+//$background-color-base: hsl(0, 0, 96%);
 
-$preset:'recruit';
+$prefix: 'recruit';
 
-$primary-color:$blue-6;
-$info-color: $blue-6;
-$success-color: $green-6;
-$processing-color: $blue-6;
-$error-color: $red-6;
-$highlight-color: $red-6;
-$warning-color: $gold-6;
-$normal-color: #d9d9d9;
-$white: #fff;
-$black: #000;
+//!default means it will not conflict with other scss declaration
+$theme-stroke-1: #323233 !default; // text
+$theme-stroke-2: #7d7e80 !default; // text
+$theme-stroke-3: #969799 !default; // help text
+$theme-stroke-4: #c8c9cc !default; // disabled text
 
-//basic styles
-$body-background: #fff;
-$component-background: #fff;
-$code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-$text-color:lighten($black,65%);
-$text-color-secondary:lighten($black,45%);
-$text-color-warning:$gold-7;
-$text-color-dark: lighten($white, 85%);
-$text-color-secondary-dark: lighten($white, 65%);
-$font-size-base: 14px;
-$font-size-lg: $font-size-base + 2px;
-$font-size-sm: 12px;
-$font-variant-base: tabular-nums;
-$font-feature-settings-base: 'tnum';
-$line-height-base: 1.5;
-$border-radius-base: 4px;
-$border-radius-sm: 2px;
-$heading-1-size: ceil($font-size-base * 2.71);
-$heading-2-size: ceil($font-size-base * 2.14);
-$heading-3-size: ceil($font-size-base * 1.71);
-$heading-4-size: ceil($font-size-base * 1.42);
+// Border and line colors
+$theme-stroke-5: #dcdee0 !default;
+$theme-stroke-6: #ebedf0 !default;
 
-$padding-lg: 24px;
-$padding-md: 16px;
-$padding-sm: 12px;
-$padding-xs: 8px;
+// Background colors
+$theme-stroke-7: #f2f3f5 !default;
+$theme-stroke-8: #f7f8fa !default;
+$theme-stroke-9: #fff !default; // White button normal background color
 
+// Button background color
+$theme-stroke-10: #eaeaea !default; // Active
+$theme-stroke-11: #f4f5f5 !default; // Hover
 
-//Animation
-$ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
-$ease-base-in: cubic-bezier(0.9, 0, 0.3, 0.7);
-$ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
-$ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
-$ease-out-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
-$ease-in-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
-$ease-in-out-back: cubic-bezier(0.71, -0.46, 0.29, 1.46);
-$ease-out-circ: cubic-bezier(0.08, 0.82, 0.17, 1);
-$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.34);
-$ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
-$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
-$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+// Blue(primary)
+$theme-primary-1: #114db4 !default;
+$theme-primary-2: #155bd4 !default;
+$theme-primary-3: #3773da !default;
+$theme-primary-4: #5487df !default;
+$theme-primary-5: #94b4eb !default;
+$theme-primary-6: #edf4ff !default;
+$theme-primary-7: #10439b !default;
+$theme-primary-8: #0a2a61 !default;
 
-// Border color
-$border-color-base: hsl(0, 0, 85%); // base border outline a component
-$border-color-split: hsl(0, 0, 91%); // split border inside a component
-$border-color-inverse: $white;
-$border-width-base: 1px; // width of the border for a component
-$border-style-base: solid;
+// Green
+$theme-success-1: #268d37 !default;
+$theme-success-2: #2da641 !default;
+$theme-success-3: #4cb35d !default;
+$theme-success-4: #66be74 !default;
+$theme-success-5: #f0faf2 !default;
 
+// Red
+$theme-error-1: #b40000 !default;
+$theme-error-2: #d40000 !default;
+$theme-error-3: #da2626 !default;
+$theme-error-4: #df4545 !default;
+$theme-error-5: #ffebeb !default;
 
-// Outline
-$outline-blur-size: 0;
-$outline-width: 2px;
-$outline-color: $primary-color;
-$background-color-light: hsl(0, 0, 98%); // background of header and selected item
-$background-color-base: hsl(0, 0, 96%);
+// Orange
+$theme-warn-1: #ed6a0c !default;
+$theme-warn-2: #f1924e !default;
+$theme-warn-3: #fff5ed !default;
+
+// Shadow
+$shadow-spec-focus: 0 0 4px 0 rgba($theme-primary-8, 0.2) !default;
+$shadow-spec-layer: 0 2px 8px 0 rgba($theme-stroke-4, 0.5) !default;
+$shadow-spec-modal: 0 2px 24px 0 rgba($theme-stroke-4, 0.5) !default;
+
+// Rate color
+$rate-star-color: #fad20c !default;
+
+$loading-icon-youzan-color: #e00 !default;
+
+//// !!! DO NOT USE !!!
+//// These variables will be removed
+//$notify-error: rgba(255, 68, 68, 0.8);
+//$notify-success: rgba(68, 187, 136, 0.8);

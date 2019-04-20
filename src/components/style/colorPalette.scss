@@ -1,0 +1,12 @@
+@function colorPalette($color,$index) {
+  $ColorBase: 10;
+  $isLight: $index <= 5;
+  $i: if($isLight, 5-$index+1, $index - 5);
+  $percent: percentage($i/$ColorBase);
+  @if ($isLight) {
+    @return lighten($color, $percent);
+  } @else {
+    @return darken($color, $percent);
+  }
+}
+
