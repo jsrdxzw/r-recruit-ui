@@ -1,4 +1,4 @@
-@import '../../style/theme/default';
+@import '../style/theme/default';
 
 .#{$prefix}-placeholder-shape {
   background: $theme-stroke-7;
@@ -7,7 +7,7 @@
     animation: #{$prefix}-placeholder 2s linear infinite;
     background: linear-gradient(
                     to right,
-                    rgba($theme-stroke-7, 0.6),
+                    rgba($theme-stroke-7, 0.5),
                     $theme-stroke-7,
                     $theme-stroke-8
     );
@@ -15,9 +15,15 @@
   }
 }
 
-.#{$prefix}-placeholder-text-row{
-  width: 100%;
+.#{$prefix}-placeholder-text-row,.#{$prefix}-placeholder-text-row-dashed .#{$prefix}-placeholder-shape{
   height: 1em;
+}
+.#{$prefix}-placeholder-text-row-dashed {
+  display: flex;
+  flex-direction: row;
+  &-segment {
+    box-sizing: border-box;
+  }
 }
 
 @keyframes #{$prefix}-placeholder {
