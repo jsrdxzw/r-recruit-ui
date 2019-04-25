@@ -1,6 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import {sample} from '../../utils/sample'
+import './style.scss'
 
 export const DEFAULT_SEGMENTS = [
     [60, 38],
@@ -18,8 +19,8 @@ export interface IPlaceholderTextRowDashedProps {
     prefix?: string,
     style?: React.CSSProperties,
     animate?: boolean,
-    lineSpacing?: string,
-    segments?: Array<Array<number>>
+    lineSpacing?: string | number,
+    segments?: Array<number>
 }
 
 // export interface IPlaceholderTextRowDashedState {
