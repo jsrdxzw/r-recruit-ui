@@ -1,6 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import './style.scss'
+import Placeholder from '../placeholder'
 
 export interface ICardProps {
     type?: 'normal' | 'nested',
@@ -10,16 +11,17 @@ export interface ICardProps {
     bodyStyle?: React.CSSProperties,
     loading?: boolean,
     className?: string,
-    prefix?: string
+    prefix?: string,
+    row?: number
 }
 
 export default class Card extends React.PureComponent<ICardProps> {
     static defaultProps = {
         type: 'normal',
+        loading: false,
         style: {},
         bodyStyle: {},
-        loading: false,
-        prefix: 'recruit'
+        row: 5
     };
 
     render() {
@@ -33,6 +35,7 @@ export default class Card extends React.PureComponent<ICardProps> {
             className,
             bodyStyle,
             prefix,
+            row = 5
         } = this.props;
         return (
             <div
@@ -47,9 +50,10 @@ export default class Card extends React.PureComponent<ICardProps> {
                     {action && <div className={`${prefix}-card-header__action`}>{action}</div>}
                 </div>
                 <div className={`${prefix}-card-body`} style={bodyStyle}>
-                    {children}
+                    {loading ? <Placeholder.TextBlock rows={row}/> : children}
                 </div>
             </div>
         )
     }
 }
+

@@ -15,20 +15,26 @@
   }
 }
 
-.#{$prefix}-placeholder-text-row,.#{$prefix}-placeholder-text-row-dashed .#{$prefix}-placeholder-shape{
+.#{$prefix}-placeholder-text-row, .#{$prefix}-placeholder-text-row-dashed .#{$prefix}-placeholder-shape {
   height: 1em;
 }
+
 .#{$prefix}-placeholder-text-row-dashed {
   display: flex;
   flex-direction: row;
+
   &-segment {
     box-sizing: border-box;
   }
 }
 
+.#{$prefix}-placeholder-circle {
+  border-radius: 50%;
+}
+
 @keyframes #{$prefix}-placeholder {
   0%, 100% {
-    background-position:  left;
+    background-position: left;
   }
   50% {
     background-position: right;

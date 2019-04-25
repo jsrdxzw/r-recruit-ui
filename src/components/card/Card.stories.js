@@ -6,11 +6,16 @@ import Card from './index'
 storiesOf('Card', module)
     .add('normal', () =>
         <Card title={'Recruit card'} type={'normal'}>
-                <div>Im card in the body</div>
+            <div>Im card in the body</div>
         </Card>
     )
     .add('nested', () =>
         <Card title={'Recruit card'} type={'nested'}>
-                <div>Im card in the body</div>
+            <div>Im card in the body</div>
         </Card>
-    );
+    )
+    .add('loading', () =>
+        <Card loading={true} type={'normal'}>
+        </Card>
+    )
+;
