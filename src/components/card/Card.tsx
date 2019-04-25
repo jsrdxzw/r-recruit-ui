@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import './card.scss'
+import './style.scss'
 
 export interface ICardProps {
     type?: 'normal' | 'nested',

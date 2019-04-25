@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import './textrow.scss'
+import './style.scss'
 
 export interface IPlaceholderTextRowProps {
     className?: string,

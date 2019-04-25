@@ -13,4 +13,4 @@ storiesOf('Card', module)
         <Card title={'Recruit card'} type={'nested'}>
                 <div>Im card in the body</div>
         </Card>
-    )
+    );
