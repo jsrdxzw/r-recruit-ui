@@ -11,8 +11,8 @@ export interface ICardProps {
     bodyStyle?: React.CSSProperties,
     loading?: boolean,
     className?: string,
-    prefix?: string,
-    row?: number
+    prefix: string,
+    row: number
 }
 
 export default class Card extends React.PureComponent<ICardProps> {
@@ -21,7 +21,8 @@ export default class Card extends React.PureComponent<ICardProps> {
         loading: false,
         style: {},
         bodyStyle: {},
-        row: 5
+        row: 5,
+        prefix: 'recruit'
     };
 
     render() {
@@ -35,7 +36,7 @@ export default class Card extends React.PureComponent<ICardProps> {
             className,
             bodyStyle,
             prefix,
-            row = 5
+            row
         } = this.props;
         return (
             <div
