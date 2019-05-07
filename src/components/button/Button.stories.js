@@ -5,7 +5,7 @@ import Button from './index'
 
 storiesOf('Button', module)
     .add('default', () =>
-        <Button size={"normal"}>
+        <Button size={'large'} spaceTwoChars={true}>
             提出
         </Button>
     )

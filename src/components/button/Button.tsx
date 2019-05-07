@@ -2,8 +2,6 @@ import React, {Children, ComponentType, CSSProperties, MouseEventHandler, PureCo
 import cx from 'classnames'
 import './style.scss'
 
-const TWO_JP_CHAR_REG = /^[\u0800-\u4e00]{2}$/;
-
 interface IButtonProps {
     type: 'default' | 'primary' | 'secondary' | 'danger' | 'success',
     size: 'small' | 'large' | 'normal',
@@ -24,7 +22,7 @@ interface IButtonProps {
 const wrapTextWithSpanTag = (children: ReactNode, isNeedInsertSpace: boolean) => {
     return Children.map(children, child => {
         if (typeof child === 'string') {
-            if (isNeedInsertSpace && TWO_JP_CHAR_REG.test(child)) {
+            if (isNeedInsertSpace && child.length === 2) {
                 return <span>{child.trim().split('').join(' ')}</span>
             }
             return <span>{child.trim()}</span>
@@ -44,10 +42,11 @@ export default class Button extends PureComponent<IButtonProps> {
     };
 
     renderLinkOrButton(className: string, wrappedChildren: ReactNode) {
-        const {component, href, target, disabled, loading} = this.props;
+        const {component, href, target, disabled, loading, spaceTwoChars, ...otherProps} = this.props;
         const Node = component || ((href || target) ? 'a' : 'button');
+        const nodeProps = (href || target) ? {href, target, ...otherProps} : otherProps;
         return (
-            <Node {...this.props} className={className} disabled={disabled || loading} onClick={this.handleClick}>
+            <Node {...nodeProps} className={className} disabled={disabled || loading} onClick={this.handleClick}>
                 {wrappedChildren}
             </Node>
         )
@@ -68,11 +67,9 @@ export default class Button extends PureComponent<IButtonProps> {
 
     render() {
         const {prefix, className, size, children} = this.props;
-        const classNames = cx({
-            [`${prefix}-btn-large`]: size === 'large',
-            [`${prefix}-btn-normal`]: size === 'normal',
-            [`${prefix}-btn-small`]: size === 'small',
-        }, `${prefix}-btn`, className);
+        const classNames = cx(`${prefix}-btn`, {
+            [`${prefix}-btn-${size}`]: true,
+        }, className);
         const wrappedChildren = wrapTextWithSpanTag(children, this.isInsertSpace());
         return this.renderLinkOrButton(classNames, wrappedChildren)
     }
