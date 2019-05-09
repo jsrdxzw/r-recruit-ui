@@ -1,0 +1,50 @@
+@import "../../style/theme/default";
+@import "button-variables";
+
+.#{$prefix}-btn-primary {
+  color: $btn-white;
+  background-color: $btn-primary;
+  border-color: $btn-primary;
+  &:hover {
+    color: $btn-white;
+    background: $btn-primary-hover;
+    border-color: $btn-primary-hover;
+  }
+  &:active {
+    color: $btn-white;
+    background: $btn-primary-active;
+    border-color: $btn-primary-active;
+  }
+}
+
+.#{$prefix}-btn-danger{
+  color: $btn-white;
+  background: $btn-danger;
+  border-color: $btn-danger;
+  &:hover {
+    color: $btn-white;
+    background: $btn-danger-hover;
+    border-color: $btn-danger-hover;
+  }
+  &:active {
+    color: $btn-white;
+    background: $btn-danger-active;
+    border-color: $btn-danger-active;
+  }
+}
+
+.#{$prefix}-btn-success{
+  color: $btn-white;
+  background: $btn-success;
+  border-color: $btn-success;
+  &:hover {
+    color: $btn-white;
+    background: $btn-success-hover;
+    border-color: $btn-success-hover;
+  }
+  &:active {
+    color: $btn-white;
+    background: $btn-success-active;
+    border-color: $btn-success-active;
+  }
+}
