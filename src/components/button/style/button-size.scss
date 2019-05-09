@@ -1,0 +1,24 @@
+@import "../../style/theme/font";
+@import "button-variables";
+
+.#{$prefix}-btn-large{
+  padding: 0 24px;
+  height: $btn-height-large;
+  line-height: $btn-height-large;
+  font-size: $font-size-large;
+}
+
+.#{$prefix}-btn-normal{
+  padding: 0 18px;
+  height: $btn-height-normal;
+  line-height: $btn-height-normal;
+  font-size: $font-size-normal;
+}
+
+.#{$prefix}-btn-small{
+  padding: 0 12px;
+  height: $btn-height-small;
+  line-height: $btn-height-small;
+  font-size: $font-size-small;
+}
+

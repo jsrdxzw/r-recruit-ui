@@ -1,4 +1,6 @@
 import React from 'react'
+import cx from 'classnames'
+import './style.scss'
 
 export interface IPlaceholderTextRowProps {
     className?: string,
@@ -11,14 +13,23 @@ export interface IPlaceholderTextRowProps {
 export default class TextRow extends React.PureComponent<IPlaceholderTextRowProps> {
 
     static defaultProps = {
-        lineSpacing: '0.7em',
+        prefix: 'recruit',
         animate: true,
-        prefix: 'recruit'
+        lineSpacing: '0.7em'
     };
 
     render() {
+        const {className, prefix, animate, style, lineSpacing} = this.props;
+        const classes = cx(
+            `${prefix}-placeholder-text-row`,
+            `${prefix}-placeholder-shape`,
+            {
+                [`${prefix}-placeholder-shape--animate`]: animate
+            },
+            className
+        );
         return (
-            <div>123</div>
+            <div className={classes} style={{marginTop: lineSpacing, ...style}}/>
         )
     }
 }
