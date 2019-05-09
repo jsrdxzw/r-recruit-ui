@@ -9,5 +9,9 @@ storiesOf('Button', module)
             提出
         </Button>
     )
-
+    .add('a', () =>
+        <Button href={'https://www.baidu.com'} target={'_blank'}>
+            提出
+        </Button>
+    )
 ;
