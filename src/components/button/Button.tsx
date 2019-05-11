@@ -13,7 +13,7 @@ interface IButtonProps {
     href?: string,
     target?: string,
     prefix: string,
-    disabled?: boolean,
+    disabled: boolean,
     spaceTwoChars: boolean,
     ripple: boolean,
     component?: ComponentType<any> | string,
@@ -44,11 +44,11 @@ export default class Button extends PureComponent<IButtonProps> {
     };
 
     renderLinkOrButton(className: string, wrappedChildren: ReactNode) {
-        const {component, href, target, disabled, loading, spaceTwoChars, ...otherProps} = this.props;
+        const {type, size, prefix, component, href, target, disabled, loading, ripple, spaceTwoChars, ...otherProps} = this.props;
         const Node = component || (this.isLink() ? 'a' : 'button');
         const nodeProps = (href || target) ? {href, target, ...otherProps} : otherProps;
         return (
-            <Node {...nodeProps} className={className} disabled={disabled || loading} onClick={this.handleClick}>
+            <Node {...nodeProps} className={className} disabled={disabled} onClick={this.handleClick}>
                 {wrappedChildren}
             </Node>
         )
@@ -73,11 +73,14 @@ export default class Button extends PureComponent<IButtonProps> {
     }
 
     render() {
-        const {prefix, className, size, children, type, ripple} = this.props;
+        const {prefix, className, size, children, type, ripple, disabled, loading} = this.props;
+        console.log(type);
         const classNames = cx(`${prefix}-btn`, {
             [`${prefix}-btn-${size}`]: true,
             [`${prefix}-btn-${type}`]: type !== 'default',
-            [`${prefix}-btn-ripple`]: ripple && !this.isLink()
+            [`${prefix}-btn-ripple`]: ripple && !this.isLink() && !disabled && !loading,
+            [`${prefix}-btn-loading`]: loading,
+            [`${prefix}-btn-disabled`]: disabled
         }, className);
         const wrappedChildren = wrapTextWithSpanTag(children, this.isInsertSpace());
         return this.renderLinkOrButton(classNames, wrappedChildren)

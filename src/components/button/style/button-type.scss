@@ -15,9 +15,21 @@
     background: $btn-primary-active;
     border-color: $btn-primary-active;
   }
+  &.#{$prefix}-btn-loading{
+    &:not(.#{$prefix}-btn-disabled){
+      &:hover {
+        background: $btn-primary;
+        border-color: $btn-primary;
+      }
+      &:active {
+        background: $btn-primary;
+        border-color: $btn-primary;
+      }
+    }
+  }
 }
 
-.#{$prefix}-btn-danger{
+.#{$prefix}-btn-danger {
   color: $btn-white;
   background: $btn-danger;
   border-color: $btn-danger;
@@ -31,9 +43,21 @@
     background: $btn-danger-active;
     border-color: $btn-danger-active;
   }
+  &.#{$prefix}-btn-loading{
+    &:not(.#{$prefix}-btn-disabled){
+      &:hover {
+        background: $btn-danger;
+        border-color: $btn-danger;
+      }
+      &:active {
+        background: $btn-danger;
+        border-color: $btn-danger;
+      }
+    }
+  }
 }
 
-.#{$prefix}-btn-success{
+.#{$prefix}-btn-success {
   color: $btn-white;
   background: $btn-success;
   border-color: $btn-success;
@@ -46,5 +70,17 @@
     color: $btn-white;
     background: $btn-success-active;
     border-color: $btn-success-active;
+  }
+  &.#{$prefix}-btn-loading{
+    &:not(.#{$prefix}-btn-disabled){
+      &:hover {
+        background: $btn-success;
+        border-color: $btn-success;
+      }
+      &:active {
+        background: $btn-success;
+        border-color: $btn-success;
+      }
+    }
   }
 }
