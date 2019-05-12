@@ -19,10 +19,6 @@ export default class Icon extends PureComponent<IIconProps> {
         const {type, className, prefix, children, ...otherProps} = this.props;
         const classNames = cx(`${prefix}-icon`, `${prefix}-icon-${type}`, className);
         const number = Children.count(children);
-        if (number >= 1) {
-            return <i className={classNames} {...otherProps}>{children}</i>
-        } else {
-            return <i className={classNames} {...otherProps}/>
-        }
+        return <i className={classNames} {...otherProps}>{number >= 1 ? children : null}</i>
     }
 }

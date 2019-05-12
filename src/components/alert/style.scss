@@ -1,0 +1,90 @@
+@import "../style/theme/default";
+@import "../style/theme/font";
+
+$color-bg-warning: $theme-warn-3;
+$color-border-warning: $theme-warn-3;
+$color-text-warning: $theme-stroke-1;
+$color-bg-error: $theme-error-4;
+$color-border-error: $theme-error-2;
+$color-text-error: $theme-stroke-9;
+$color-bg-info: $theme-stroke-8;
+$color-text-info: $theme-stroke-1;
+$alert-border-radius: 4px;
+$close-icon-size: 14px;
+
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.#{$prefix}-alert {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: $font-size-normal;
+  line-height: 12px;
+  position: relative;
+
+  &.#{$prefix}-alert-closable {
+    margin-left: 15px;
+    height: 100%;
+    width: $close-icon-size;
+    position: absolute;
+    top: 0;
+    right: 15px;
+
+    .#{$prefix}-alert-close-wrapper {
+      margin-left: 15px;
+      height: 100%;
+      width: $close-icon-size;
+      position: absolute;
+      top: 0;
+      right: 15px;
+    }
+
+    .#{$prefix}-alert-close-btn {
+      @include vertical-center;
+      width: $close-icon-size;
+      font-family: sans-serif;
+      font-size: 18px;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      color: $theme-stroke-3;
+    }
+  }
+
+  &.#{$prefix}-alert-size-normal {
+    padding: 15px;
+  }
+
+  &.#{$prefix}-alert-size-large {
+    padding: 11px 15px 11px 30px;
+  }
+
+  &.#{$prefix}-alert-border-rounded {
+    border-radius: $alert-border-radius;
+  }
+
+  &.#{$prefix}-alert-style-info {
+    background: $color-bg-info;
+    color: $color-text-info;
+  }
+
+  &.#{$prefix}-alert-style-warning {
+    background: $color-bg-warning;
+    border: 1px solid $color-border-warning;
+    color: $color-text-warning;
+  }
+
+  &.#{$prefix}-alert-style-danger {
+    background: $color-bg-error;
+    border: 1px solid $color-border-error;
+    color: $color-text-error;
+
+    .#{$prefix}-alert-close-btn {
+      color: $theme-stroke-9;
+    }
+  }
+}
+

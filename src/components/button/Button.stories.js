@@ -11,11 +11,11 @@ storiesOf('Button', module)
                 提出
             </Button>
             <hr/>
-            <Button type={'danger'} onClick={action('danger button clicked')} loading>
+            <Button type={'danger'} onClick={action('danger button clicked')}>
                 エラー
             </Button>
             <hr/>
-            <Button type={'success'} onClick={action('success button clicked')} loading>
+            <Button type={'success'} onClick={action('success button clicked')}>
                 成功
             </Button>
         </div>
